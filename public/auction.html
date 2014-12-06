@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<link href="assets/css/custom.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="slider/css/slider.css">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<script src="js/jquery-2.0.0.min.js"></script>
+		<script src="slider/js/bootstrap-slider.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+		<script src="js/handlebars.js"></script>
+		<script src="js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js"></script>
+		<script src="js/auction.js"></script>
+		<title>
+			WHITE TIE FANTASY - Auction
+		</title>
+	</head>
+	<body id="auction">
+		<div>
+			<div id="freeze_timer" style="">
+        		05
+    		</div>
+		</div>
+		
+		<!-- <div id="overlay" style="">
+		</div> -->
+		<div class="container" id="main">
+			<!--Start of left panel-->
+		
+		 <nav class="navbar-default navbar-side" id="left-panel">
+		 	<div class="row" id="user-list">
+               <div class="sidebar-collapse">
+        
+               <ul class="nav" id="auction-list">
+               		
+               </ul> 	
+			   <ul>
+					<li id="main_timer">
+                		<span id="current_sec" style="margin:0px">30</span>
+					</li>
+			   </ul>
+            </div>
+        </div>
+
+        </nav>  
+    </div>
+			<!--End of left panel-->		
+			<!--Start of middle panel-->
+			<div id="page-wrapper">
+				<div  id="middle-panel">
+				<div class="row" id="bidding-slider">
+				 
+					<div class="col-sm-6 col-md-3 col-lg-3" id="player-name">
+						PLAYER NAME
+					</div>
+					<div class="col-sm-6 col-md-3 col-lg-3" id="slider">
+						<input type="text" class="span2" value="0" data-slider-min="0" data-slider-max="196" data-slider-step="1" data-slider-value="0" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+					</div>
+					
+					<div class="col-sm-6 col-md-3 col-lg-3" id="amount_panel">
+					 <div id="bidding-amount">
+					 	<div id="encapsulated_dollar" class="col-xs-3">
+					 		<span class="col" id="dollar">$</span>
+					 		<span class="col" id="current-bid">0</span>
+					 		<span id="confirm"><img src="assets/img/confirm.png" /><img src="assets/img/confirmed.png" style="display:none"/></span>
+					 	</div>
+					 </div>
+					</div>
+					
+					<div class="col-sm-6 col-md-3 col-lg-3" id="player-position">
+						 <span id="pos">QB</span>
+					</div>			
+					
+					<!-- <span id="player-name"></span> -->
+				 		
+				</div>
+				
+				<div class="container" id="card_container">
+
+					<div class="row-fluid" id="card-frame">
+					
+					</div>
+				</div>
+			</div>
+		<!-- end of middle panel -->
+		</div>
+		</div>
+		<script type="text/x-handlebars-template" id="usersList">
+       		<li>
+				<span>{{token}}.</span><img src="assets/img/find_user.png" /><span>{{name}}</span>
+			</li>
+		</script>
+		<script type="text/x-handlebars-template" id="auctionByPosition">
+		<div class="col-md-2 col-lg-2">
+			<div class="no-bid" card_id="{{card_id}}" type="card">
+				<section>
+					<div class="real-player-name">&nbsp;</div>
+				</section>
+				<div class="fantasy_player">{{player_name}}</div>
+				
+				<div class="row" id="temp">
+					<div class="my-bid">My Bid:$ <span></span></div>
+				</div>
+				
+				<section class="in-active">
+					<div class="col-sm-6 card-counter"> 
+						<span>05</span>
+					</div>
+					<div class="col-sm-6 card-bid">
+						<span class="label" >
+							<span class="high-bid-label">HIGH BID</span>
+						</span>
+						<span class="draft"></span>	
+						<div class="col-sm-6 card-dollar">
+							<div class="row">
+								<div class="col-sm-4 symbol">$</div>
+								<span class="col-sm-8 amt">00</span>
+							</div>
+							<div class="row">
+								<div class="my-bid">My Bid:$ <span></span></div>
+							</div>
+						</div>
+					</div>
+
+				</section>
+			</div>
+		</div>
+		
+		</script>
+	</body>
+</html>
+
+<!-- 						 -->	

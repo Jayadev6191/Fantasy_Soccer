@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<script src="js/jquery-2.0.0.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	</head>
+	<body>
+		
+		<div id="demo" style="color:red">Hello friends</div>
+		<form id="send-message">
+			<input type="text" id="msg"/>
+			<input type="submit" id="sub">
+		</form>
+		<div id="chat"></div>
+		
+		
+		<script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+		<script>
+		jQuery(function($){
+			
+			var messages = [];
+			var socket=io.connect("http://localhost:3200");
+			var $message_box=$("#msg");
+			var $chat=$("#chat");
+			var $sendButton=$("#sub");
+			var $message_form=$('#send-message');
+		
+			$message_form.submit(function(e){
+				e.preventDefault();
+				socket.emit('message',$message_box.val());
+				$message_box.val('');
+			});
+			
+			socket.on('new message',function(data){
+				$chat.append(data+'<br/>');
+			});
+			
+		});
+		
+		</script>
+	</body>
+</html>
